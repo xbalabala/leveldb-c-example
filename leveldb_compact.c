@@ -16,14 +16,17 @@ main(int argc, char* argv[]){
 
   // open
   options = leveldb_options_create();
-  leveldb_options_set_create_if_missing(options, 1);
   db = leveldb_open(options, db_path, &err);
   if (err != NULL) {
     fprintf(stderr, "Open fail.\n");
     return 1;
   }
 
+  // compact all
   leveldb_compact_range(db, NULL, 0, NULL, 0);
+
+  // close
+  leveldb_close(db);
 
   return 0;
 }

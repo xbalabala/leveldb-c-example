@@ -9,8 +9,8 @@ int main()
   leveldb_readoptions_t *roptions;
   leveldb_writeoptions_t *woptions;
   char *err = NULL;
-  char *read;
-  size_t read_len;
+  /* char *read; */
+  /* size_t read_len; */
 
   // open
   options = leveldb_options_create();
@@ -31,6 +31,8 @@ int main()
     snprintf(k, 20, "key%d", i);
     snprintf(v, 20, "value%d", i);
 
+    // printf("key: %s, len: %ld, value: %s, len: %ld\n", k, strlen(k), v, strlen(v));
+
     // write
     leveldb_put(db, woptions, k, strlen(k), v, strlen(v), &err);
     if (err != NULL) {
@@ -49,11 +51,11 @@ int main()
     */
 
     // delete
-    leveldb_delete(db, woptions, k, strlen(k), &err);
-    if (err != NULL) {
-      fprintf(stderr, "Delete fail.\n");
-      return (1);
-    }
+    /* leveldb_delete(db, woptions, k, strlen(k), &err); */
+    /* if (err != NULL) { */
+    /*   fprintf(stderr, "Delete fail.\n"); */
+    /*   return (1); */
+    /* } */
   }
 
   // close
