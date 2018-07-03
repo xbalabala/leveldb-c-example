@@ -1,4 +1,7 @@
+CURRENT_PATH=$(PWD)
+
+FILES = leveldb_example leveldb_compact leveldb_iterate
 all:
-	gcc leveldb_example.c -o bin/example -Wall -lleveldb -lstdc++ -lpthread -std=c99
-	gcc leveldb_compact.c -o bin/compact -Wall -lleveldb -lstdc++ -lpthread -std=c99
-	gcc leveldb_all_keys.c -o bin/all_keys -Wall -lleveldb -lstdc++ -lpthread -std=c99
+	$(foreach var, $(FILES), \
+		gcc $(var).c -o bin/$(var) -Wall -L$(CURRENT_PATH)/../basho.leveldb -I$(CURRENT_PATH)/../basho.leveldb/include \
+		-lleveldb -lstdc++ -lpthread -lm -std=c99;)

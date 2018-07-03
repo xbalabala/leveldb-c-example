@@ -32,13 +32,23 @@ main(int argc, char* argv[]){
 
   size_t klen, vlen;
   const char *k, *v;
-  for (int i=0; i<100; i++) {
-    leveldb_iter_next(iter);
+  for (int i=0; leveldb_iter_valid(iter) && i<100; i++) {
     k = leveldb_iter_key(iter, &klen);
     v = leveldb_iter_value(iter, &vlen);
 
-    printf("key: %.*s, len: %ld, strlen: %ld\n", (int)klen, k, klen, strlen(k));
-    printf("val: %.*s, len: %ld, strlen: %ld\n", (int)vlen, v, vlen, strlen(v));
+    // print hex bytes
+    for (int j = 0; j < vlen; j++)
+    {
+      if (j > 0) printf(" ");
+      printf("%02X", (unsigned char)v[j]);
+    }
+    printf("\n");
+
+    // print string value
+    // printf("key: %.*s, len: %ld, strlen: %ld\n", (int)klen, k, klen, strlen(k));
+    // printf("val: %.*s, len: %ld, strlen: %ld\n", (int)vlen, v, vlen, strlen(v));
+
+    leveldb_iter_next(iter);
   }
 
   // close

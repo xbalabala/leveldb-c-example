@@ -6,7 +6,7 @@ int main()
 {
   leveldb_t *db;
   leveldb_options_t *options;
-  leveldb_readoptions_t *roptions;
+  // leveldb_readoptions_t *roptions;
   leveldb_writeoptions_t *woptions;
   char *err = NULL;
   /* char *read; */
@@ -22,7 +22,7 @@ int main()
   }
 
   woptions = leveldb_writeoptions_create();
-  roptions = leveldb_readoptions_create();
+  // roptions = leveldb_readoptions_create();
 
   int v_size = 10000;
   char k[20], v[20];
