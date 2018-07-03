@@ -1,5 +1,6 @@
 /testdb
 /bin
+/basho.leveldb
 
 #### joe made this: http://goel.io/joe
 
