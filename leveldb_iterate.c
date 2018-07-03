@@ -37,16 +37,16 @@ main(int argc, char* argv[]){
     v = leveldb_iter_value(iter, &vlen);
 
     // print hex bytes
-    for (int j = 0; j < vlen; j++)
-    {
-      if (j > 0) printf(" ");
-      printf("%02X", (unsigned char)v[j]);
-    }
-    printf("\n");
+    // for (int j = 0; j < vlen; j++)
+    // {
+    //   if (j > 0) printf(" ");
+    //   printf("%02X", (unsigned char)v[j]);
+    // }
+    // printf("\n");
 
     // print string value
-    // printf("key: %.*s, len: %ld, strlen: %ld\n", (int)klen, k, klen, strlen(k));
-    // printf("val: %.*s, len: %ld, strlen: %ld\n", (int)vlen, v, vlen, strlen(v));
+    printf("key: %.*s, len: %ld, strlen: %ld\n", (int)klen, k, klen, strlen(k));
+    printf("val: %.*s, len: %ld, strlen: %ld\n", (int)vlen, v, vlen, strlen(v));
 
     leveldb_iter_next(iter);
   }

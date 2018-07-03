@@ -22,7 +22,6 @@ Compile with GCC:
 
     gcc leveldb_example.c -Wall -lleveldb -lstdc++ -lpthread
 
-
 License
 ---------------------------
 [MIT](http://en.wikipedia.org/wiki/MIT_License)
